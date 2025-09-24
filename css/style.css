@@ -1,0 +1,282 @@
+/* ---------- Base / Reset ---------- */
+* {
+    box-sizing: border-box;
+}
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #5b6475;
+    --border: #e2e6ef;
+    --brand: #1f5eff;
+    --brand-ink: #0e3cc1;
+    --ink: #222;
+    --badge-bg: #eef3ff;
+    --badge-bd: #a9bffb;
+}
+html {
+    font-size: 16px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0 0 48px;
+    line-height: 1.5;
+}
+
+/* ---------- Container / Card ---------- */
+.card {
+    max-width: 1000px;
+    margin: 24px auto;
+    background: var(--card);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(10, 20, 40, 0.05);
+}
+
+/* ---------- Header / Nav (float-based) ---------- */
+.site-title {
+    margin: 0 0 2px 0;
+    font-size: 1.35rem;
+}
+.site-sub {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+nav {
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    float: left;
+}
+nav a {
+    display: block;
+    padding: 11px 13px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 3px solid transparent;
+}
+nav a:hover {
+    background: #111;
+    color: #fff;
+}
+nav a:focus {
+    outline: 2px dashed var(--brand);
+    outline-offset: 2px;
+}
+
+/* Active state helper (set on each page’s current nav link) */
+nav a.active {
+    border-bottom-color: var(--brand);
+    color: var(--brand-ink);
+    font-weight: bold;
+}
+nav::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---------- Hero (float image left, text right) ---------- */
+.hero .avatar {
+    float: left;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid #2d3345;
+    object-fit: cover;
+    margin-right: 18px;
+}
+.hero .intro {
+    overflow: hidden;
+} /* BFC to sit beside float */
+.clear {
+    clear: both;
+}
+
+.lead {
+    margin: 10px 0 0 0;
+    max-width: 680px;
+    color: var(--muted);
+}
+
+/* ---------- Headings & Text ---------- */
+h1,
+h2,
+h3 {
+    margin: 0 0 8px 0;
+    line-height: 1.25;
+    color: #121521;
+}
+h1 {
+    font-size: 1.85rem;
+}
+h2 {
+    font-size: 1.45rem;
+}
+h3 {
+    font-size: 1.15rem;
+}
+p {
+    margin: 8px 0 14px;
+}
+ul {
+    margin: 8px 0 16px 18px;
+}
+
+/* ---------- Badges / Buttons ---------- */
+.badge {
+    display: inline-block;
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-bd);
+    padding: 5px 9px;
+    border-radius: 999px;
+    margin: 6px 6px 0 0;
+    font-size: 0.85rem;
+}
+
+.badge:hover {
+    background: var(--badge-bd);
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 9px 14px;
+    border: 1px solid #111;
+    text-decoration: none;
+    color: #111;
+    border-radius: 8px;
+}
+.btn:hover {
+    background: #111;
+    color: #fff;
+}
+.btn.primary {
+    border-color: var(--brand);
+    color: #fff;
+    background: var(--brand);
+}
+.btn.primary:hover {
+    background: var(--brand-ink);
+}
+
+/* ---------- Gallery (float-based) ---------- */
+.gallery figure {
+    width: 180px;
+    float: left;
+    margin: 10px;
+    border: 1px solid #d8deea;
+    background: #fafbff;
+    padding: 8px;
+    border-radius: 8px;
+}
+.gallery img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+.gallery figcaption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 6px;
+}
+.gallery::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---------- Columns / Boxes (skills page uses floats implicitly via widths) ---------- */
+.cols {
+    margin-top: 10px;
+}
+.box {
+    width: 31.5%;
+    float: left;
+    margin: 0 2% 16px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fbfcff;
+    padding: 12px;
+}
+.box:nth-child(3n) {
+    margin-right: 0;
+}
+.box h3 {
+    margin-top: 4px;
+}
+.cols::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---------- Simple rows / helpers ---------- */
+.row {
+    margin: 6px 0;
+    color: #2a3142;
+}
+.muted {
+    color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* ---------- Responsive tweaks (still float-friendly) ---------- */
+@media (max-width: 740px) {
+    .hero .avatar {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+    .box {
+        width: 48%;
+        margin-right: 4%;
+    }
+    .box:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+@media (max-width: 520px) {
+    .hero .avatar {
+        float: none;
+        display: block;
+        margin: 0 auto 12px;
+    }
+    .hero .intro {
+        overflow: visible;
+    }
+    .box {
+        width: 100%;
+        margin-right: 0;
+    }
+    nav li {
+        float: none;
+    }
+    nav a {
+        border-bottom: 1px solid var(--border);
+    }
+}
